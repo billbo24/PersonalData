@@ -1,0 +1,58 @@
+/* 1. Register your custom font */
+@font-face {
+    font-family: 'CircularStd';
+    src: url('../fonts/CircularStd-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* 2. Apply the global styles */
+body {
+    background-color: #ff6b6b; /* Soft Pink / Pastel Pink */
+    color: white;             /* All text becomes white */
+    font-family: 'CircularStd', sans-serif; /* Use your font, fall back to sans-serif */
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure links are also white so they don't turn blue/purple */
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    
+    /* 1. Set to same soft pink as the body */
+    background-color: #ff6b6b; 
+    
+    /* 2. Add the thin white separator line */
+    border-bottom: 1px solid white; 
+    
+    /* 3. Keep it at the top */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Space between links */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* 2. The "Magic" to turn a black/colored SVG into white */
+.logo img {
+    filter: brightness(0) invert(1);
+    width: 40px; /* Adjust size as needed */
+}
