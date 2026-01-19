@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Proper Website</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -25,8 +26,92 @@
     </header>
 
     <main>
-        <h1>Hello World 2</h1>
+        <h1>Mundane Tracker</h1>
+        <p>Logged in as: User</p>
+
+        <div id="login-section">
+            <h2>Login to Track</h2>
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="handleLogin()" class="track-btn">Sign In</button>
+        </div>
+        
+        <div id="tracker-section" style="display:none;">
+            <h1>Mundane Tracker</h1>
+            <div class="button-container">
+                <button class="track-btn" onclick="trackActivity('Dog Walk')">Walked Dogs 🐕</button>
+                <button class="track-btn" onclick="trackActivity('Route A')">Commute Route A 🚗</button>
+            </div>
+            <button onclick="handleLogout()" style="margin-top: 20px;">Logout</button>
+        </div>    
+    
     </main>
+
+    <script>
+    
+
+    // 1. Initialize the Connection
+    const supabaseUrl = 'https://wvyqzegrmdaiqdaaoagi.supabase.co'
+    const supabaseKey = 'sb_publishable_7mu-hisYvIztWbt9miXpmA_OfQGNnVL'
+    const db = supabase.createClient(supabaseUrl, supabaseKey)
+        
+
+    // --- NEW LOGIN FUNCTIONS ---
+        
+    // Function to show/hide the tracker based on if you're logged in
+    async function checkUser() {
+        const { data: { user } } = await db.auth.getUser();
+        if (user) {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('tracker-section').style.display = 'block';
+        } else {
+            document.getElementById('login-section').style.display = 'block';
+            document.getElementById('tracker-section').style.display = 'none';
+        }
+    }
+    async function handleLogin() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const { data, error } = await db.auth.signInWithPassword({
+            email: email,
+            password: password,
+        });
+
+        if (error) {
+            alert("Login failed: " + error.message);
+        } else {
+            checkUser(); // Refresh the UI
+        }
+    }
+
+    async function handleLogout() {
+        await db.auth.signOut();
+        checkUser();
+    }
+
+
+    // 4. Data Tracking Function
+    async function trackActivity(name) {
+        console.log("Tracking:", name);
+        
+        const { data, error } = await db
+            .from('Activities') // Make sure this matches your table name exactly!
+            .insert([{ activity_name: name }]);
+
+        if (error) {
+            alert("Error saving activity: " + error.message);
+        } else {
+            alert("Successfully tracked: " + name);
+        }
+    }
+
+    // 5. Kick everything off when the page loads
+    checkUser();
+
+
+
+    </script>
 
 </body>
 </html>

@@ -56,3 +56,28 @@ a {
     filter: brightness(0) invert(1);
     width: 40px; /* Adjust size as needed */
 }
+
+
+.button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.track-btn {
+    background-color: white;
+    color: #f8c8dc; /* That same soft pink */
+    border: 1px solid white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-family: 'CircularStd', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.track-btn:hover {
+    background-color: #e5989b; /* Dusty rose from earlier */
+    color: white;
+    transform: translateY(-2px); /* Slight lift effect */
+}
