@@ -25,7 +25,7 @@
         </nav>
     </header>
 
-    <main>
+    <main class="content-wrapper">
         
         <h1>Mundane Tracker</h1>
         
@@ -38,9 +38,11 @@
         <div id="login-section">
 
             <h2>Login to Track</h2>
-            <input type="email" id="email" placeholder="Email">
-            <input type="password" id="password" placeholder="Password">
-            <button onclick="handleLogin()" class="modern-btn">Sign In</button>
+            <input class="modern-input" style="width: 25%;" type="email" id="email" placeholder="Email">
+            <br>
+            <input class="modern-input" style="width: 25%;margin-top: 10px;" type="password" id="password" placeholder="Password">
+            <br>
+            <button onclick="handleLogin()" class="modern-btn" style="margin-top: 10px;">Sign In</button>
         </div>
         
         <!-- This is what we see if we are     logged in -->
@@ -49,22 +51,31 @@
         <!-- ******************************************* -->
         <!-- ******************************************* -->
 
-        <!-- This is the bit where you can enter a new field if you want -->
+        <!-- This is the bit where you select the field to enter -->
         <div id="tracker-section" style="display:none;">
             
             <label for="activity-selector">What are we tracking?</label>
             <select id="activity-selector" class="modern-select" style="width: 50%;" onchange="generateDynamicForm()">
                 <option value="">-- Select an Activity --</option>
             </select>
-
-            <div id="dynamic-form-container" style="margin-top: 20px; padding: 15px; border: 1px solid white; border-radius: 8px; display: none; width: 50%; ">
+            
+        <!-- This is where we submit the data -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
+            <div id="dynamic-inputs-container" style="margin-top: 20px;  border: 1px solid white; border-radius: 8px; display: none; ">
                 <h2 id="current-activity-title"></h2>
                 <div id="dynamic-inputs"></div>
                 <button class="track-btn" onclick="submitDynamicEntry()" style="margin-top: 15px;">Save Entry</button>
             </div>
-            <button onclick="handleLogout()" style="margin-top: 20px;" class="modern-btn">Logout</button>
             
-
+            
+        <!-- This is where we create new things to track -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
 
             <!-- This is the bit where you can enter a new field if you want -->
             <div id="blueprint-creator" style="margin-top: 40px; border-top: 1px solid white; padding-top: 20px;width:100%">
@@ -83,6 +94,7 @@
                 <button class="modern-btn" onclick="saveBlueprint()">Save Activity Blueprint</button>
             </div>
         
+        <button onclick="handleLogout()" style="margin-top: 20px;" class="modern-btn">Logout</button>
         </div>    
         
     </main>

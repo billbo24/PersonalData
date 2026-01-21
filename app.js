@@ -130,7 +130,7 @@
     // 2. The "Generator" - Runs when you pick an activity
     function generateDynamicForm() {
         const selectedId = document.getElementById('activity-selector').value;
-        const container = document.getElementById('dynamic-form-container');
+        const container = document.getElementById('dynamic-inputs-container');
         const inputArea = document.getElementById('dynamic-inputs');
         const title = document.getElementById('current-activity-title');
 
@@ -150,9 +150,10 @@
             group.style.marginBottom = '10px';
             
             // We define the width of these inputs in the actual HTML, making it take up a percentage of the page.  This looks much better imo
+            //Adding dynamic-field to the class of teh text input means it can be found by the submit button
             group.innerHTML = `
                 <label style="display:block; font-size: 0.9em;">${fieldName}</label>
-                <input type="text" class="modern-input" data-fieldname="${fieldName}" style="width:100%;">
+                <input type="text" class="modern-input dynamic-field" data-fieldname="${fieldName}" > 
             `;
             inputArea.appendChild(group);
         });
@@ -191,6 +192,7 @@
             alert(`Successfully saved ${blueprint.display_name}!`);
             // Optional: clear the inputs
             inputs.forEach(i => i.value = "");
+
         }
     }
 

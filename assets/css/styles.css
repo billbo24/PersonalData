@@ -19,6 +19,14 @@ body {
     padding: 0;
 }
 
+.content-wrapper {
+    padding: 15px;     
+    margin-left: auto;
+    margin-right: auto;
+  
+    
+}
+
 /* Ensure links are also white so they don't turn blue/purple */
 a {
     color: white;
@@ -123,6 +131,13 @@ a {
   /* Smoothness */
   outline: none;
   transition: all 0.2s ease-in-out;
+}
+
+#dynamic-inputs-container {
+    width: 50%;
+    box-sizing: border-box; /* Crucial so padding doesn't make it 532px again! */
+    padding: 10px;
+   
 }
 
 /* When the user clicks into it */
