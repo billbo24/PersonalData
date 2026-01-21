@@ -5,7 +5,7 @@
         const container = document.getElementById('fields-input-container');
         const input = document.createElement('input');
         input.type = 'text';
-        input.className = 'field-name';
+        input.className = 'modern-input';
         input.placeholder = 'Field Name';
         input.style.display = 'block';
         input.style.marginTop = '10px';

@@ -28,19 +28,32 @@
     <main>
         
         <h1>Mundane Tracker</h1>
-
+        
+        <!-- This is what we see if we are not logged in -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
+        
         <div id="login-section">
 
             <h2>Login to Track</h2>
             <input type="email" id="email" placeholder="Email">
             <input type="password" id="password" placeholder="Password">
-            <button onclick="handleLogin()" class="track-btn">Sign In</button>
+            <button onclick="handleLogin()" class="modern-btn">Sign In</button>
         </div>
         
+        <!-- This is what we see if we are     logged in -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
+        <!-- ******************************************* -->
+
+        <!-- This is the bit where you can enter a new field if you want -->
         <div id="tracker-section" style="display:none;">
             
             <label for="activity-selector">What are we tracking?</label>
-            <select id="activity-selector" onchange="generateDynamicForm()">
+            <select id="activity-selector" class="modern-select" style="width: 50%;" onchange="generateDynamicForm()">
                 <option value="">-- Select an Activity --</option>
             </select>
 
@@ -49,24 +62,25 @@
                 <div id="dynamic-inputs"></div>
                 <button class="track-btn" onclick="submitDynamicEntry()" style="margin-top: 15px;">Save Entry</button>
             </div>
-            <button onclick="handleLogout()" style="margin-top: 20px;">Logout</button>
+            <button onclick="handleLogout()" style="margin-top: 20px;" class="modern-btn">Logout</button>
             
 
 
             <!-- This is the bit where you can enter a new field if you want -->
-            <div id="blueprint-creator" style="margin-top: 40px; border-top: 1px solid white; padding-top: 20px;">
+            <div id="blueprint-creator" style="margin-top: 40px; border-top: 1px solid white; padding-top: 20px;width:100%">
                 <h3>Add New Activity Type</h3>
-                <input type="text" id="blueprint-name" placeholder="Activity Name (e.g. Commute)">
-                
-                <div id="fields-input-container">
-                    <input type="text" class="field-name" placeholder="Field Name (e.g. Route)">
+                <div style="width:50%">
+                    <input type="text" class="modern-input" id="blueprint-name" placeholder="Activity Name (e.g. Commute)" style="margin-bottom: 10px;">
+                    
+                    <div id="fields-input-container">
+                        <input type="text" class="modern-input" placeholder="Field Name (e.g. Route)">
+                    </div>
                 </div>
 
-
                 
-                <button onclick="addFieldInput()" style="background: none; border: 1px dashed pink; cursor: pointer;">+ Add Another Field</button>
+                <button onclick="addFieldInput()" class="add-field">+ Add Another Field</button>
                 <br><br>
-                <button class="track-btn" onclick="saveBlueprint()">Save Activity Blueprint</button>
+                <button class="modern-btn" onclick="saveBlueprint()">Save Activity Blueprint</button>
             </div>
         
         </div>    
