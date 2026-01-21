@@ -133,6 +133,17 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
+.login-div {
+    width: 100%;
+}
+
+/* "If the screen is wider than 768px (Tablets/Laptops)..." */
+@media (min-width: 768px) {
+    .login-div {
+        width: 25%; /* Shrink it down for big screens */
+    }
+}
+
 #dynamic-inputs-container {
     width: 50%;
     box-sizing: border-box; /* Crucial so padding doesn't make it 532px again! */
