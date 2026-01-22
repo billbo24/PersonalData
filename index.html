@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Proper Website</title>
+    <title>Temp</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -52,10 +52,10 @@
         <!-- ******************************************* -->
 
         <!-- This is the bit where you select the field to enter -->
-        <div id="tracker-section" style="display:none;">
+        <div id="tracker-section" class="tracker-div" style="display:none;">
             
             <label for="activity-selector">What are we tracking?</label>
-            <select id="activity-selector" class="modern-select" style="width: 50%;" onchange="generateDynamicForm()">
+            <select id="activity-selector" class="modern-select" onchange="generateDynamicForm()">
                 <option value="">-- Select an Activity --</option>
             </select>
             
@@ -80,7 +80,7 @@
             <!-- This is the bit where you can enter a new field if you want -->
             <div id="blueprint-creator" style="margin-top: 40px; border-top: 1px solid white; padding-top: 20px;width:100%">
                 <h3>Add New Activity Type</h3>
-                <div style="width:50%">
+                <div style="width:100%">
                     <input type="text" class="modern-input" id="blueprint-name" placeholder="Activity Name (e.g. Commute)" style="margin-bottom: 10px;">
                     
                     <div id="fields-input-container">

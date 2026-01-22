@@ -7,9 +7,31 @@
 }
 
 :root {
-  /*--main-color: #302c1e; /* Change this once, and it updates everywhere */
-  --main-color: #0d1b4f
+  /* --main-color: #302c1e; Change this once, and it updates everywhere */
+  /* --main-color: #0d1b4f */
+  --main-color: black;
+  --login-container-width: 25%;
+  --input-field-container-width: 50%
 }
+
+/* This conditionally changes certain sizes to accommodate phone screens*/
+@media (max-width: 768px) {
+  :root{
+    --login-container-width: 100%;
+    --input-field-container-width: 100%
+  }
+  
+}
+
+
+.tracker-div {
+    width: var(--input-field-container-width);
+}
+
+.login-div {
+    width: var(--login-container-width);
+}
+
 
 /* 2. Apply the global styles */
 body {
@@ -134,19 +156,10 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
-.login-div {
-    width: 100%;
-}
 
-/* "If the screen is wider than 768px (Tablets/Laptops)..." */
-@media (min-width: 768px) {
-    .login-div {
-        width: 25%; /* Shrink it down for big screens */
-    }
-}
 
 #dynamic-inputs-container {
-    width: 50%;
+    width: 100%;
     box-sizing: border-box; /* Crucial so padding doesn't make it 532px again! */
     padding: 10px;
    
