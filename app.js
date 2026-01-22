@@ -197,5 +197,42 @@
     }
 
 
+            // This will pull all the data for a selected field
+            async function filterLogs() {
+            const selectedActivity = document.getElementById('activity-dropdown').value;
+            const container = document.getElementById('log-display-section');
+            console.log("Function triggered!")
+            console.log(selectedActivity)
+            // 1. Get the current user
+            const { data: { user } } = await db.auth.getUser();
+
+            // 2. The "Select * Where" logic
+            const { data: logs, error } = await db
+                .from('Activities')
+                .select('*')
+                .eq('user_id', user.id) // Must be yours
+                .eq('activity_name', selectedActivity) // Must match the dropdown
+                .order('created_at', { ascending: false });
+
+            if (error) return console.error(error);
+
+            // 3. Wipe and Redraw
+            container.innerHTML = `<h4>History for ${selectedActivity}</h4>`;
+            
+            if (logs.length === 0) {
+                container.innerHTML += '<p>No entries found.</p>';
+                return;
+            }
+
+            logs.forEach(row => {
+                container.innerHTML += `
+                    <div class="log-item">
+                        <strong>Count:</strong> ${row.count} | 
+                        <span>${new Date(row.created_at).toLocaleDateString()}</span>
+                    </div>`;
+            });
+        }
+
+
        // 5. Kick everything off when the page loads
        checkUser();

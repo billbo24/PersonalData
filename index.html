@@ -70,7 +70,20 @@
                 <button class="track-btn" onclick="submitDynamicEntry()" style="margin-top: 15px;">Save Entry</button>
             </div>
             
-            
+
+            <!-- Pick data to display -->
+                <!-- ******************************************* -->
+                <!-- ******************************************* -->
+                <!-- ******************************************* -->
+                <!-- ******************************************* -->
+            <select id="activity-dropdown" onchange="filterLogs()">
+                <option value="Coffee">Coffee</option>
+                <option value="Water">Water</option>
+                <option value="Sleep">Sleep</option>
+            </select>
+
+            <div id="log-display-section">
+            </div>
         <!-- This is where we create new things to track -->
         <!-- ******************************************* -->
         <!-- ******************************************* -->
@@ -87,7 +100,9 @@
                         <input type="text" class="modern-input field-name" placeholder="Field Name (e.g. Route)">
                     </div>
                 </div>
+                
 
+                
                 
                 <button onclick="addFieldInput()" class="add-field">+ Add Another Field</button>
                 <br><br>
